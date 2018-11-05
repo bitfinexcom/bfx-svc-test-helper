@@ -1,0 +1,25 @@
+{
+  "name": "bfx-svc-test-helper",
+  "version": "1.0.0",
+  "description": "common test functions",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bitfinexcom/bfx-svc-test-helper.git"
+  },
+  "author": "Robert <robert@bitfinex.com>",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "standard": "^12.0.1"
+  },
+  "dependencies": {
+    "async": "^2.6.1",
+    "bfx-svc-boot-js": "git+https://github.com/bitfinexcom/bfx-svc-boot-js.git",
+    "grenache-grape": "git+https://github.com/bitfinexcom/grenache-grape.git",
+    "grenache-nodejs-http": "git+https://github.com/bitfinexcom/grenache-nodejs-http.git",
+    "grenache-nodejs-link": "git+https://github.com/bitfinexcom/grenache-nodejs-link.git"
+  }
+}
