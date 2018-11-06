@@ -58,3 +58,29 @@ Makes a request to the configured worker.
 ### `client.stop([cb]) => Promise`
 
 Stops the client.
+
+### `createServer(mocks, opts) => Server`
+
+Sets up a HTTP stub/mock server.
+
+  `opts.port` - the port the server will listen to.
+  `opts.debug` - print the data sent from the client via post
+
+`opts.debug` is useful when you are creating new mock definitions, especially
+if you use an external client library to send the request.
+
+`mocks` can be a mock definition or an array of mock definitions.
+
+The server can basically match, test and return anything on request/response,
+sent payloads etc. For convenience, there are shorthands that should suffice
+in most cases: [example-server-simple.js](example-server-simple.js).
+
+For advanced route matching and testing of incoming requests, see [example-server-advanced.js](example-server-advanced.js)
+
+### `server.start([cb]) => Promise`
+
+Makes a request to the configured mockserver.
+
+### `server.stop([cb]) => Promise`
+
+Stops the server.
