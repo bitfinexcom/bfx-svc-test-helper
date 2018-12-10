@@ -84,3 +84,7 @@ Makes a request to the configured mockserver.
 ### `server.stop([cb]) => Promise`
 
 Stops the server.
+
+### utils.getApi(worker) => Api
+
+Returns the loc.api instance of the worker
