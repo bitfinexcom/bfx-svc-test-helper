@@ -65,8 +65,10 @@ class Client {
 
   stop (cb = () => {}) {
     return new Promise((resolve, reject) => {
-      this.peer.stop()
-      this.link.stop()
+      if(this.peer && this.link){
+        this.peer.stop()
+        this.link.stop()
+      }
       resolve()
       cb(null)
     })
