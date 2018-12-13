@@ -41,7 +41,7 @@ class Client {
     })
   }
 
-  request (query, opts, cb = () => {}) {
+  request (query, opts, cb) {
     return new Promise((resolve, reject) => {
       if (typeof opts === 'function') {
         this.request(query, { timeout: 10000 }, opts)
@@ -51,26 +51,27 @@ class Client {
       this.connectGrape(() => {
         this.peer.request(this.workerName, query, opts, (err, res) => {
           if (err) {
+            if (cb) return cb(err)
             reject(err)
-            cb(err)
             return
           }
 
+          if (cb) return cb(null, res)
           resolve(res)
-          cb(null, res)
         })
       })
     })
   }
 
-  stop (cb = () => {}) {
+  stop (cb) {
     return new Promise((resolve, reject) => {
       if(this.peer && this.link){
         this.peer.stop()
         this.link.stop()
       }
+
+      if (cb) return cb(null)
       resolve()
-      cb(null)
     })
   }
 }
