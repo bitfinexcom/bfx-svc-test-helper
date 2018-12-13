@@ -51,8 +51,8 @@ class Client {
       this.connectGrape(() => {
         this.peer.request(this.workerName, query, opts, (err, res) => {
           if (err) {
+            if (cb) return cb(err)
             reject(err)
-            cb(err)
             return
           }
 
