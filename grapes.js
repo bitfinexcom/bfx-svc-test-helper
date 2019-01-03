@@ -46,28 +46,28 @@ class Grapes extends EventEmitter {
         this.on('ready', () => {
           this.onAnnounce(serviceName, cb)
         })
-
         return
       }
 
-      this._checkAnnounce(serviceName, resolve, reject, cb)
+      if (!serviceName) {
+        cb(null)
+        resolve()
+        return
+      }
+
+      this._checkAnnounce(serviceName, () => {
+        resolve()
+        cb(null)
+      })
     })
   }
 
-  _checkAnnounce (serviceName, resolve, reject, cb) {
+  _checkAnnounce (serviceName, cb) {
     this.grapes[0].once('announce', (name) => {
-      if (!serviceName) {
-        resolve()
-        cb(null)
-        return
-      }
-
       if (serviceName === name) {
-        resolve()
         return cb(null)
       }
-
-      this._checkAnnounce(serviceName, resolve, reject, cb)
+      this._checkAnnounce(serviceName, cb)
     })
   }
 
