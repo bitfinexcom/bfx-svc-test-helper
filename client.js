@@ -4,12 +4,18 @@ const { PeerRPCClient } = require('grenache-nodejs-http')
 const Link = require('grenache-nodejs-link')
 
 class Client {
-  constructor (worker) {
+  constructor (worker, opts = {}) {
     this.peer = null
     this.link = null
 
     this.worker = worker
     this.workerName = this.getWorkerName(worker)
+
+    const oDefault = {
+      grape: 'http://127.0.0.1:30001'
+    }
+
+    this.conf = { ...oDefault, ...opts }
   }
 
   getWorkerName (worker) {
@@ -29,7 +35,7 @@ class Client {
       }
 
       this.link = new Link({
-        grape: 'http://127.0.0.1:30001'
+        grape: this.conf.grape
       })
       this.link.start()
 
@@ -65,7 +71,7 @@ class Client {
 
   stop (cb) {
     return new Promise((resolve, reject) => {
-      if(this.peer && this.link){
+      if (this.peer && this.link) {
         this.peer.stop()
         this.link.stop()
       }
@@ -76,8 +82,8 @@ class Client {
   }
 }
 
-function createClient (worker) {
-  return new Client(worker)
+function createClient (worker, opts) {
+  return new Client(worker, opts)
 }
 
 module.exports = createClient
