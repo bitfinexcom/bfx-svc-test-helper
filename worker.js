@@ -24,12 +24,17 @@ class Worker {
         return
       }
 
-      const [ service ] = this.grenacheConf.services
-      this.name = service
-      this.grapes.onAnnounce(service, () => {
+      if (this.grenacheConf.services) {
+        const [ service ] = this.grenacheConf.services
+        this.name = service
+        this.grapes.onAnnounce(service, () => {
+          resolve()
+          cb(null)
+        })
+      } else {
         resolve()
         cb(null)
-      })
+      }
     })
   }
 
