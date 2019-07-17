@@ -39,7 +39,7 @@ class Client {
       })
       this.link.start()
 
-      this.peer = new PeerRPCClient(this.link, {})
+      this.peer = new PeerRPCClient(this.link, this.conf)
       this.peer.init()
 
       resolve()
