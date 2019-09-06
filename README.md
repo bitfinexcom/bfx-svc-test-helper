@@ -12,6 +12,8 @@ for improvements and suggestions that make our day to day life as a team easier!
 The API supports Promise and callback based APIs. For a common example,
 see [example.js](example.js).
 
+You can also stub/mock Grenache services. See
+[example-fauxgrenache.js](example-fauxgrenache.js) for an example.
 
 ## API
 
@@ -58,6 +60,21 @@ Makes a request to the configured worker.
 ### `client.stop([cb]) => Promise`
 
 Stops the client.
+
+### `createFxGrenache(mocks, grapes, [opts]) => FauxGrenacheServer`
+
+Spins up Grenache service mocks.
+
+  `opts.port` - the port the server will listen to, defaults to `1557`
+  `opts.link` - custom / own link, can be used for customised setups
+
+### `fxgrenache.start([cb]) => Promise`
+
+Makes a request to the configured mockserver.
+
+### `fxgrenache.stop([cb]) => Promise`
+
+Stops the server.
 
 ### `createServer(mocks, opts) => Server`
 
