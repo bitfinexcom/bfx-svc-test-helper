@@ -29,7 +29,7 @@ class Worker {
         return cb(null)
       }
 
-      const [ service ] = this.grenacheConf.services
+      const [service] = this.grenacheConf.services
       this.name = service
       this.grapes.onAnnounce(service, () => {
         resolve()

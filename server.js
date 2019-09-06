@@ -11,7 +11,7 @@ class Mocks {
 
   parseRouting (routes) {
     if (!Array.isArray(routes)) {
-      routes = [ routes ]
+      routes = [routes]
     }
 
     routes = routes.map((route) => {

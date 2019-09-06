@@ -26,7 +26,7 @@ const grapes = createGrapes()
 
   const res = await client.request({
     action: 'getIpGeo',
-    args: [ '8.8.8.8' ]
+    args: ['8.8.8.8']
   })
 
   console.log('got response:')
