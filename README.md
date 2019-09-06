@@ -85,6 +85,25 @@ Makes a request to the configured mockserver.
 
 Stops the server.
 
-### utils.getApi(worker) => Api
+### `utils.getApi(worker) => Api`
 
 Returns the loc.api instance of the worker
+
+### `utils.getGrapeApiPort(grapesWorker) => port`
+
+Gets the HTTP port of one of the Grape workers
+
+Example:
+
+```js
+const createGrapes = require('bfx-svc-test-helper/grapes')
+const utils = require('bfx-svc-test-helper/utils')
+
+const grapes = createGrapes()
+
+;(async () => {
+  await grapes.start()
+  const port = utils.getGrapeApiPort(grapes)
+  console.log(port) // 30001
+})()
+```
