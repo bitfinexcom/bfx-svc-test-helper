@@ -16,13 +16,18 @@ class Worker {
     return new Promise((resolve, reject) => {
       this.worker = worker(this.conf)
 
-      this.grenacheConf = this.worker.getGrcConf()
-
       if (!this.grapes) {
         resolve()
         cb(null)
         return
       }
+
+      if (!this.worker.getGrcConf) {
+        resolve()
+        return cb(null)
+      }
+
+      this.grenacheConf = this.worker.getGrcConf()
 
       if (!this.grenacheConf.services) {
         resolve()
