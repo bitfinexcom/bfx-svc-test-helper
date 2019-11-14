@@ -2,7 +2,7 @@
 
 const http = require('http')
 const Link = require('grenache-nodejs-link')
-const { getGrapeApiPort } = require('./utils')
+const { getGrapeApiUrl } = require('./utils')
 
 const getRawBody = require('raw-body')
 const async = require('async')
@@ -21,9 +21,9 @@ class FauxGrenache {
       return this.link
     }
 
-    const p = getGrapeApiPort(this.grapes)
+    const url = getGrapeApiUrl(this.grapes)
     this.link = new Link({
-      grape: 'http://127.0.0.1:' + p
+      grape: url
     })
 
     return this.link

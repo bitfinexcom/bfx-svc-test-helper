@@ -61,12 +61,15 @@ Makes a request to the configured worker.
 
 Stops the client.
 
-### `createFxGrenache(mocks, grapes, [opts]) => FauxGrenacheServer`
+### `createFxGrenache(mocks, grapes|url, [opts]) => FauxGrenacheServer`
 
 Spins up Grenache service mocks.
 
   `opts.port` - the port the server will listen to, defaults to `1557`
   `opts.link` - custom / own link, can be used for customised setups
+
+Second parameter is either a `Grapes` instance or a http url pointing
+to the Grenache Grape HTTP Server.
 
 ### `fxgrenache.start([cb]) => Promise`
 

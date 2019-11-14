@@ -17,9 +17,13 @@ const stubs = {
 
 ;(async () => {
   await grapes.start()
-
   // lets create a worker stub
-  const fxg = createFxGrenache(stubs, grapes)
+
+  // we can pass in Grape instances or an url
+  const url = 'http://localhost:30001'
+  const grape = grapes || url
+
+  const fxg = createFxGrenache(stubs, grape)
   await fxg.start()
   console.log('stub service started, announcing on grape')
 
