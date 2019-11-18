@@ -17,9 +17,26 @@ You can also stub/mock Grenache services. See
 
 ## API
 
-### `createGrapes() => Grapes`
+### `createGrapes([opts]) => Grapes`
 
 Creates an instance to manage Grapes for testing.
+
+### Arguments
+
+- `opts` is an object of additional options, there is able to pass:
+  - `ports` is an array of object, for example:
+
+  ```js
+  [{
+    dht_port: 20002,
+    dht_bootstrap: ['127.0.0.1:20001'],
+    api_port: 40001
+  }, {
+    dht_port: 20001,
+    dht_bootstrap: ['127.0.0.1:20002'],
+    api_port: 30001
+  }]
+  ```
 
 ### `grapes.start([cb]) => Promise`
 
