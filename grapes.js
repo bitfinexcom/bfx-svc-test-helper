@@ -5,8 +5,10 @@ const waterfall = require('async/waterfall')
 const EventEmitter = require('events')
 
 class Grapes extends EventEmitter {
-  constructor (opts) {
+  constructor (opts = {}) {
     super()
+
+    this.opts = opts
     this.grapes = this.addDefaultGrapes()
   }
 
@@ -71,17 +73,21 @@ class Grapes extends EventEmitter {
   }
 
   addDefaultGrapes () {
-    const g1 = new Grape({
-      dht_port: 20002,
-      dht_bootstrap: ['127.0.0.1:20001'],
-      api_port: 40001
-    })
-    const g2 = new Grape({
-      dht_port: 20001,
-      dht_bootstrap: ['127.0.0.1:20002'],
-      api_port: 30001
-    })
-    return [g1, g2]
+    const { ports } = this.opts
+    const _ports = Array.isArray(ports)
+      ? ports
+      : [{
+        dht_port: 20002,
+        dht_bootstrap: ['127.0.0.1:20001'],
+        api_port: 40001
+      }, {
+        dht_port: 20001,
+        dht_bootstrap: ['127.0.0.1:20002'],
+        api_port: 30001
+      }]
+
+    return _ports
+      .map((ports) => new Grape(ports))
   }
 
   stop (cb = () => {}) {
