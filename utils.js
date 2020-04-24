@@ -16,6 +16,6 @@ function getGrapeApiUrl (grapes) {
     return grapes
   }
 
-  const p = getGrapeApiPort(this.grapes)
+  const p = getGrapeApiPort(grapes)
   return 'http://127.0.0.1:' + p
 }
