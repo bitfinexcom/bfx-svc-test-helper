@@ -110,11 +110,11 @@ class Mocks {
         }
 
         if (matches.length === 0) {
-          throw new Error('bfx-svc-test-helper: no route matched')
+          throw new Error(`bfx-svc-test-helper: no route matched (${req.url})`)
         }
 
         if (matches.length > 1) {
-          throw new Error('bfx-svc-test-helper: multiple routes matched')
+          throw new Error(`bfx-svc-test-helper: multiple routes matched (${req.url})`)
         }
 
         const mock = matches[0]
