@@ -1,7 +1,7 @@
 'use strict'
 
 const createServer = require('./server')
-const request = require('request')
+const fetch = require('node-fetch')
 const assert = require('assert')
 
 const server = createServer({
@@ -28,21 +28,17 @@ const server = createServer({
     assert.ok(payload.fruit, 'missing property')
     cb(null)
   }
-}, { port: 1337 })
+}, { port: 1337 });
 
-;(async () => {
+(async () => {
   await server.start()
 
-  request({
-    uri: 'http://localhost:1337/foo',
-    json: true,
-    body: { fruit: 'mango' },
+  const res = await fetch('http://localhost:1337/foo', {
+    body: JSON.stringify({ fruit: 'mango' }),
     method: 'POST'
-  }, async (err, res, body) => {
-    if (err) throw err
-
-    console.log('response', body, res.statusCode)
-
-    await server.stop()
   })
+
+  console.log('response', await res.json(), res.status)
+
+  await server.stop()
 })()

@@ -1,7 +1,7 @@
 'use strict'
 
 const createServer = require('./server')
-const request = require('request')
+const fetch = require('node-fetch')
 
 const server = createServer([
   {
@@ -12,21 +12,17 @@ const server = createServer([
     reply: { animal: 'Fair Isle Wren' },
     route: '/england'
   }
-], { port: 1337, debug: true })
+], { port: 1337, debug: true });
 
-;(async () => {
+(async () => {
   await server.start()
 
-  request({
-    uri: 'http://localhost:1337/australia',
-    json: true,
-    body: { foo: 'bar' },
+  const res = await fetch('http://localhost:1337/australia', {
+    body: JSON.stringify({ foo: 'bar' }),
     method: 'POST'
-  }, async (err, res, body) => {
-    if (err) throw err
-
-    console.log('response', body, res.statusCode)
-
-    await server.stop()
   })
+
+  console.log('response', await res.json(), res.status)
+
+  await server.stop()
 })()
