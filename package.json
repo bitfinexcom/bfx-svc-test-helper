@@ -17,11 +17,11 @@
     "standard": "^17.0.0"
   },
   "dependencies": {
-    "async": "^3.2.4",
+    "async": "3.2.6",
     "bfx-svc-boot-js": "git+https://github.com/bitfinexcom/bfx-svc-boot-js.git",
-    "grenache-grape": "git+https://github.com/bitfinexcom/grenache-grape.git",
-    "grenache-nodejs-http": "git+https://github.com/bitfinexcom/grenache-nodejs-http.git",
-    "grenache-nodejs-link": "git+https://github.com/bitfinexcom/grenache-nodejs-link.git",
+    "grenache-grape": "0.9.12",
+    "grenache-nodejs-http": "1.0.0",
+    "grenache-nodejs-link": "1.0.1",
     "raw-body": "2.5.2"
   }
 }
