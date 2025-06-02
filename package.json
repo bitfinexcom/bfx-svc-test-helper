@@ -19,9 +19,9 @@
   "dependencies": {
     "async": "3.2.6",
     "bfx-svc-boot-js": "git+https://github.com/bitfinexcom/bfx-svc-boot-js.git",
-    "grenache-grape": "0.9.12",
-    "grenache-nodejs-http": "1.0.0",
-    "grenache-nodejs-link": "1.0.1",
+    "grenache-grape": "1.0.0",
+    "grenache-nodejs-http": "1.0.1",
+    "grenache-nodejs-link": "1.0.2",
     "raw-body": "2.5.2"
   }
 }
