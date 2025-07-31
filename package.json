@@ -1,6 +1,6 @@
 {
   "name": "bfx-svc-test-helper",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "common test functions",
   "main": "index.js",
   "scripts": {
