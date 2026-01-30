@@ -1,6 +1,6 @@
 'use strict'
 
-const worker = require('bfx-svc-boot-js/lib/worker')
+const worker = require('@bitfinex/bfx-svc-boot-js/lib/worker')
 
 class Worker {
   constructor (conf, grapes) {
