@@ -77,14 +77,14 @@ class Grapes extends EventEmitter {
     const _ports = Array.isArray(ports)
       ? ports
       : [{
-        dht_port: 20002,
-        dht_bootstrap: ['127.0.0.1:20001'],
-        api_port: 40001
-      }, {
-        dht_port: 20001,
-        dht_bootstrap: ['127.0.0.1:20002'],
-        api_port: 30001
-      }]
+          dht_port: 20002,
+          dht_bootstrap: ['127.0.0.1:20001'],
+          api_port: 40001
+        }, {
+          dht_port: 20001,
+          dht_bootstrap: ['127.0.0.1:20002'],
+          api_port: 30001
+        }]
 
     return _ports
       .map((ports) => new Grape(ports))

@@ -125,7 +125,7 @@ class FauxGrenache {
   }
 
   stopAnnounces (stubs) {
-    Object.keys(stubs).map((el) => {
+    Object.keys(stubs).forEach((el) => {
       this.link.stopAnnouncing(el, this.port)
     })
   }
