@@ -1,6 +1,6 @@
 {
   "name": "@bitfinex/bfx-svc-test-helper",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "common test functions",
   "engines": {
     "node": ">=22.0.0"
@@ -24,9 +24,9 @@
   "dependencies": {
     "@bitfinex/bfx-svc-boot-js": "^2.0.0",
     "async": "^3.2.6",
-    "grenache-grape": "^2.0.0",
-    "grenache-nodejs-http": "^2.0.0",
-    "grenache-nodejs-link": "^2.0.0",
+    "grenache-grape": "^2.0.1",
+    "grenache-nodejs-http": "^2.0.1",
+    "grenache-nodejs-link": "^2.0.1",
     "raw-body": "^2.5.3"
   }
 }
